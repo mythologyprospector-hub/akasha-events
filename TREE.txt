@@ -1,0 +1,11 @@
+akasha-events/
+  README.md
+  schemas/
+    event.schema.json
+  examples/
+    bigfoot_sighting.json
+    solar_flare.json
+  ingest/
+    ingest_event.py
+  docs/
+    event_model.md
