@@ -1,37 +1,59 @@
+# akasha-events
 
-# Akasha Events
+Akasha Events is the canonical **event schema and persistent ledger layer** for the Akasha ecosystem.
 
-Akasha Events is the canonical **event schema and ingestion layer** for the Akasha ecosystem.
+Everything that happens in Akasha — human observations, API data, sensor readings,
+and future discovery outputs — is represented as an **Event**.
 
-Everything that happens in Akasha — observations, API data, human reports, sensor data, discovery results — is recorded as an **Event**.
+## Position in the Akasha stack
 
-Events provide the universal language connecting:
+```text
+akasha-anomaly
+    ↓
+akasha-time-nexus
+    ↓
+akasha-events
+    ↓
+akasha-attractor
+```
 
-- akasha-time-nexus (time context)
-- akasha-apis (external data sources)
-- akasha-grand-atlas (knowledge registry)
-- discovery engines
-- mythology engines
+## V2 goal
 
-## Philosophy
+V2 turns `akasha-events` from a schema-only seed into a **working event ledger**.
 
-Science advances when anomalies are recorded.
+It now includes:
 
-Akasha Events exists to capture observations without bias so correlations can later be discovered.
+- canonical event schema
+- SQLite storage
+- event insert helpers
+- simple event query helpers
+- CLI for add/list/recent
 
-## Core Concept
+## Why it matters
 
-All data becomes:
+Without a durable event ledger, Akasha has no memory.
 
-Event
+Akasha Events is the first persistent place where:
 
-Example:
+- enriched observations
+- machine observations
+- external observations
 
-event_id: akasha-0001
-timestamp: 2026-03-30T20:00:00Z
-location: 38.41,-82.44
-category: astronomical
-source: nasa_api
-payload:
-  solar_flare_class: M2
-confidence: 0.92
+can accumulate in a common structure and later be queried for patterns.
+
+## Example event
+
+```json
+{
+  "event_id": "uuid",
+  "timestamp": "2026-03-30T20:00:00Z",
+  "location": "38.42,-82.44",
+  "category": "observation",
+  "source": "human",
+  "payload": {
+    "title": "strange lights",
+    "notes": "three flashes near tree line"
+  },
+  "confidence": 0.72
+}
+```
