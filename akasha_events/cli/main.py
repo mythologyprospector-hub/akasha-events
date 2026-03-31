@@ -43,3 +43,6 @@ def main() -> None:
 
     elif args.command == "recent":
         print(json.dumps(recent_events(conn, limit=args.limit), indent=2))
+
+if __name__ == "__main__":
+    main()
