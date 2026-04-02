@@ -4,6 +4,11 @@ repo:
   version: 0.2.0
   status: active
 
+engine:
+  family: observation
+  class: ledger_engine
+  role: canonical_event_store
+
 identity:
   role: core
   layer: ledger
@@ -35,8 +40,3 @@ alignment:
 
 depends_on:
   - akasha-time-nexus
-
-engine:
-  family: observation
-  class: ledger_engine
-  role: unknown
