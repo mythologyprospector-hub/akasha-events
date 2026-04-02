@@ -35,3 +35,8 @@ alignment:
 
 depends_on:
   - akasha-time-nexus
+
+engine:
+  family: observation
+  class: ledger_engine
+  role: unknown
